@@ -21,6 +21,7 @@ import com.example.demo.service.PrivateService;
 public class PrivateController {
 	@Autowired
 	PrivateService privateService;
+
 	@GetMapping("/private")
 	public String top( Model model) {
 		model.addAttribute("privateForm",new PrivateForm());
