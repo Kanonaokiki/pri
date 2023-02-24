@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<head>
+</head>
+<title>個人情報一覧</title>
+<link rel="stylesheet" href="css/privatelist.css">
+<body>
+	<h1>個人情報一覧</h1>
+	<div class="container">
+		<div class="float-end"></div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>名前</th>
+					<th>誕生日</th>
+					<th>性別</th>
+					<th>出身地</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="private : ${privatelist}" th:object="${privateEntity}">
+					<td th:text="${private.id}"></td>
+					<td th:text="${private.name}"></td>
+					<td th:text="${#dates.format(private.birthday, 'yyyy/MM/dd')}"></td>
+					<td th:text="${private.sex}"></td>
+					<td th:text="${private.birthplace}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 	<div class="back">
+		<a th:href="@{/mypage}"> <input type="submit" value="マイページへ"
+			class="back"></a>
+	</div> -->
+	<!-- <form th:action="@{/user/private/delete}" th:object="${privateForm}"
+		th:method="post">
+		<label>ID：<span class="text-danger"></span></label>
+		<div class="text-center">
+			<input type="submit" value="削除">
+		</div>
+		<input type="text" th:field="*{id}" name="user_id">
+	</form> -->
+	<div class="backApplication">
+		<a th:href="@{/private}"> <input type="submit" value="入力画面へ"
+			class="backApplication"></a>
+	</div>
+ <!-- 	<div class="back">
+		<a th:href="@{/privateEdit}"> <input type="submit" value="編集画面へ"
+			class="back"></a>
+	</div>-->
+</body>
+</html>
