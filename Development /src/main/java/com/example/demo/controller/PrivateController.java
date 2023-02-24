@@ -69,7 +69,7 @@ public class PrivateController {
 	public String delete(Integer id,PrivateForm privateForm, Model model) {
 		// ユーザー情報の削除
 		privateService.delete(id);
-		return "redirect:/private";
+		return "redirect:/privatelist";
 	}
 
 	@PostMapping("/private/update")
