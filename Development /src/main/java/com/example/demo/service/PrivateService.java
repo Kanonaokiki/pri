@@ -27,7 +27,7 @@ public class PrivateService {
 
 	public void insert(PrivateForm privateForm) {
 		PrivateEntity privateEntity = new PrivateEntity();
-		privateEntity.setId(privateForm.getId());
+//		privateEntity.setId(privateForm.getId());
 		privateEntity.setName(privateForm.getName());
 		privateEntity.setBirthday(privateForm.getBirthday());
 		privateEntity.setSex(privateForm.getSex());
