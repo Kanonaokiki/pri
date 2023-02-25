@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 public class PrivateForm {
-//	@NotNull(message = "IDを入力してください")
+	@NotNull(message = "IDを入力してください")
 	private Integer id;
 
 	@NotEmpty(message = "名前を入力してください")

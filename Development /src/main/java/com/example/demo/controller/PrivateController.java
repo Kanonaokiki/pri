@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.PrivateEntity;
@@ -28,11 +29,17 @@ public class PrivateController {
 		return "/private";
 	}
 
-	@PostMapping("/edit/update")
-	public String edit( Model model) {
-		model.addAttribute("privateForm",new PrivateForm());
-		return "/update";
-	}
+//	@PostMapping("/private")
+//	public String top2( Model model) {
+//		model.addAttribute("privateForm",new PrivateForm());
+//		return "/privatelist";
+//	}
+
+//	@PostMapping("/edit/update")
+//	public String edit( Model model) {
+//		model.addAttribute("privateForm",new PrivateForm());
+//		return "/update";
+//	}
 
 	@PostMapping("/back")
 	public String edit2( Model model) {
@@ -71,27 +78,33 @@ public class PrivateController {
 		return "redirect:/privatelist";
 	}
 
-	@PostMapping("/user/private/delete")
+//	@PostMapping("/user/private/delete")
+	  @GetMapping("/{id}")
+	  public String delete(@PathVariable Integer id, Model model) {
+	    // ユーザー情報の削除
+	    privateService.delete(id);
+	    return "redirect:/privatelist";
+	  }
 	public String delete(Integer id,PrivateForm privateForm, Model model) {
 		// ユーザー情報の削除
 		privateService.delete(id);
 		return "redirect:/privatelist";
 	}
 
-	@PostMapping("/update")
-	public String update(@Validated @ModelAttribute PrivateForm privateForm, BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			List<String> errorList = new ArrayList<String>();
-			for (ObjectError error : result.getAllErrors()) {
-				errorList.add(error.getDefaultMessage());
-			}
-			model.addAttribute("privateForm", privateForm);
-			model.addAttribute("validationError", errorList);
-			return "/update";
-		}
-		// ユーザー情報の更新
-		privateService.update(privateForm);
-		model.addAttribute("privateForm",privateForm);
-		return "redirect:/privatelist";
-	}
+//	@PostMapping("/update")
+//	public String update(@Validated @ModelAttribute PrivateForm privateForm, BindingResult result, Model model) {
+//		if (result.hasErrors()) {
+//			List<String> errorList = new ArrayList<String>();
+//			for (ObjectError error : result.getAllErrors()) {
+//				errorList.add(error.getDefaultMessage());
+//			}
+//			model.addAttribute("privateForm", privateForm);
+//			model.addAttribute("validationError", errorList);
+//			return "/update";
+//		}
+//		// ユーザー情報の更新
+//		privateService.update(privateForm);
+//		model.addAttribute("privateForm",privateForm);
+//		return "redirect:/privatelist";
+//	}
 }
