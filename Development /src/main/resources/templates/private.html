@@ -15,47 +15,43 @@
 		<h1>個人情報登録・編集</h1>
 		<div class="all">
 		<form th:action="@{/private}" th:object="${privateForm}" method="POST">
-		 	<div class="Id">
+		 	<!-- <div class="id"> -->
 				<div class="error" th:errors="*{id}"></div>
 				ID<br /> <input type="text" th:field="*{id}" class="inputId">
-			</div>
-			<br />
-			<div class="Name">
+			<!-- </div> -->
+			<br /><br />
+			<!-- <div class="Name"> -->
 				<div class="error" th:errors="*{name}"></div>
 				名前<br /> <input type="text" th:field="*{name}" class="inputName">
-			</div>
-			<br />
-			<div class="Birthday">
+			<!-- </div> -->
+			<br /><br />
+			<!-- <div class="Birthday"> -->
 				<div class="error" th:errors="*{birthday}"></div>
 				誕生日<br /> <input type="date" th:field="*{birthday}"
-					class="inputBirthday"> <br />
-			</div>
-				<br />
-				<div class="Sex">
-				<div class="error" th:errors="*{sex}"></div>
-				<div class="Sex">性別</div>
-				 <select name="sex">
+					class="inputBirthday"> <br /><br />
+			<!-- </div> -->
+			    <div class="error" th:errors="*{sex}"></div>
+				性別<br />
+				  <select name="sex">
 					<option></option>
 					<option value="男">男</option>
 					<option value="女">女</option>
-				</select>
-				</div>
-
-			<div class="Birthplace">
+				</select><br/><br />
+			<!-- <div class="Birthplace"> -->
 				<div class="error" th:errors="*{birthplace}"></div>
 				出身地<br /> <input type="text" th:field="*{birthplace}"
-					class="inputBirthplace">
-			</div>
-			<div class="regist">
+					class="inputBirthplace"><br /><br />
+			<!-- </div> -->
+			<div class="regist"><br />
 				<input type="submit" value="登録" class="regist">
 			</div>
 		</form>
-		</div>
+		 </div>
 		<form th:action="@{/privatelist}"  >
-		<div class="back">
+		<div class="back"><br />
 			<input type="submit" value="戻る" class="edit">
 		</div>
 		</form>
-	</div>
+	 </div>
 </body>
 </html>
