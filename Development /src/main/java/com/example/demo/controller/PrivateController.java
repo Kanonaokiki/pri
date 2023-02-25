@@ -28,10 +28,16 @@ public class PrivateController {
 		return "/private";
 	}
 
-	@GetMapping("/privateEdit")
+	@PostMapping("/edit/update")
 	public String edit( Model model) {
 		model.addAttribute("privateForm",new PrivateForm());
-		return "/privateEdit";
+		return "/update";
+	}
+
+	@PostMapping("/back")
+	public String edit2( Model model) {
+		model.addAttribute("privateForm",new PrivateForm());
+		return "/private";
 	}
 
 	@GetMapping("/privatelist")
@@ -72,7 +78,7 @@ public class PrivateController {
 		return "redirect:/privatelist";
 	}
 
-	@PostMapping("/private/update")
+	@PostMapping("/update")
 	public String update(@Validated @ModelAttribute PrivateForm privateForm, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			List<String> errorList = new ArrayList<String>();
@@ -81,7 +87,7 @@ public class PrivateController {
 			}
 			model.addAttribute("privateForm", privateForm);
 			model.addAttribute("validationError", errorList);
-			return "/private";
+			return "/update";
 		}
 		// ユーザー情報の更新
 		privateService.update(privateForm);
