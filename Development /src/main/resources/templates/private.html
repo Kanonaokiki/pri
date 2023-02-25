@@ -9,10 +9,10 @@
 	<div class="header">
 		<h1>個人情報</h1>
 		<form th:action="@{/private}" th:object="${privateForm}" method="POST">
-			<div class="Id">
+		<!-- 	<div class="Id">
 				<div class="error" th:errors="*{id}"></div>
 				ID<br /> <input type="text" th:field="*{id}" class="inputId">
-			</div>
+			</div> -->
 			<br />
 			<div class="Name">
 				<div class="error" th:errors="*{name}"></div>
@@ -22,11 +22,12 @@
 			<div class="Birthday">
 				<div class="error" th:errors="*{birthday}"></div>
 				誕生日<br /> <input type="date" th:field="*{birthday}"
-					class="inputBirthday"> <br /><br />
+					class="inputBirthday"> <br />
+				<br />
 				<div class="Sex">性別</div>
 				<div class="error" th:errors="*{sex}"></div>
 				<select name="sex">
-				    <option></option>
+					<option></option>
 					<option value="男">男</option>
 					<option value="女">女</option>
 				</select>
@@ -40,16 +41,17 @@
 				<input type="submit" value="登録" class="regist">
 			</div>
 		</form>
-<!-- 		<div class="back">
-			<a th:href="@{/privateEdit}"> <input type="submit" value="編集画面へ"
-				class="back"></a>
-		</div> -->
-		<div class="delete">
-		<form th:action="@{/user/private/delete}" th:object="${privateForm}"
-			th:method="post">削除したいID
-			<input type="text" th:field="*{id}" name="id">
-				<input type="submit" value="削除する" class="del">
+		<form th:action="@{/edit/update}" th:object="${privateForm}" method="POST">
+		<div class="back">
+			<input type="submit" value="編集" class="edit">
+		</div>
 		</form>
+		<div class="delete">
+			<form th:action="@{/user/private/delete}" th:object="${privateForm}"
+				th:method="post">
+				削除したいID <input type="text" th:field="*{id}" name="id"> <input
+					type="submit" value="削除する" class="del">
+			</form>
 		</div>
 	</div>
 </body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個人情報編集</title>
+<link rel="stylesheet" th:href="@{/css/update.css}">
+</head>
+	<h1>個人情報編集</h1>
+	<form th:action="@{/update}" th:object="${privateForm}"
+		th:method="post" name="form">
+
+		<div class="form-group">
+		<div class="error" th:errors="*{id}"></div>
+			ID<div class="text-danger"><input
+				 type="text" th:field="*{id}"
+				class="id"></div>
+		</div>
+		<br>
+
+
+		<div class="form-group">
+		<div class="error" th:errors="*{name}"></div>
+			名前<div class="text-danger"><input
+				type="text" th:field="*{name}" class="name"></div>
+		</div>
+		<br>
+
+		<div class="form-group">
+		<div class="error" th:errors="*{birthday}"></div>
+			誕生日<div class="text-danger"><input
+				type="date" th:field="*{birthday}" class="birthday"></div>
+		</div>
+		<br>
+
+		<div class="form-group">
+		<div class="error" th:errors="*{sex}"></div>
+			性別<div class="text-danger" >
+				<select name="sex">
+					<option></option>
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select></div>
+		</div>
+		<br>
+
+		<div class="form-group">
+		<div class="error" th:errors="*{birthplace}"></div>
+			出身地<div class="text-danger"><input
+				type="text" th:field="*{birthplace}" class="birthplace"></div>
+		</div>
+		<br>
+
+		<div class="center">
+			<input type="submit" value="編集" class="edit">
+		</div>
+	</form>
+		<form th:action="@{/back}" method="POST">
+		<div class="back">
+			<input type="submit" value="戻る" class="back">
+		</div>
+		</form>
+
+</body>
+</html>
