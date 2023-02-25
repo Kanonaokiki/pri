@@ -7,6 +7,11 @@
 <title>個人情報一覧</title>
 <link rel="stylesheet" href="css/privatelist.css">
 <body>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+</div>
 	<h1>個人情報一覧</h1>
 	<div class="container">
 		<div class="float-end"></div>
@@ -28,6 +33,7 @@
 					<td th:text="${#dates.format(private.birthday, 'yyyy/MM/dd')}"></td>
 					<td th:text="${private.sex}"></td>
 					<td th:text="${private.birthplace}"></td>
+ 					<td><a th:href="@{/{id}(id=${private.id})}">削除</a></td>
 				</tr>
 			</tbody>
 		</table>

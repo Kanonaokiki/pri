@@ -2,17 +2,22 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>新規個人情報登録</title>
+<title>個人情報登録・編集</title>
 <link rel="stylesheet" href="css/private.css">
 </head>
 <body>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+</div>
 	<div class="header">
-		<h1>新規個人情報登録</h1>
+		<h1>個人情報登録・編集</h1>
 		<form th:action="@{/private}" th:object="${privateForm}" method="POST">
-		<!-- 	<div class="Id">
+		 	<div class="Id">
 				<div class="error" th:errors="*{id}"></div>
 				ID<br /> <input type="text" th:field="*{id}" class="inputId">
-			</div> -->
+			</div>
 			<br />
 			<div class="Name">
 				<div class="error" th:errors="*{name}"></div>
@@ -41,18 +46,11 @@
 				<input type="submit" value="登録" class="regist">
 			</div>
 		</form>
-		<form th:action="@{/edit/update}" th:object="${privateForm}" method="POST">
+		<form th:action="@{/privatelist}"  >
 		<div class="back">
-			<input type="submit" value="編集" class="edit">
+			<input type="submit" value="戻る" class="edit">
 		</div>
 		</form>
-		<div class="delete">
-			<form th:action="@{/user/private/delete}" th:object="${privateForm}"
-				th:method="post">
-				削除したいID <input type="text" th:field="*{id}" name="id"> <input
-					type="submit" value="削除する" class="del">
-			</form>
-		</div>
 	</div>
 </body>
 </html>
