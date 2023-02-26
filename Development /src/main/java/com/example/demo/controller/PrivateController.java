@@ -29,24 +29,6 @@ public class PrivateController {
 		return "/private";
 	}
 
-//	@PostMapping("/private")
-//	public String top2( Model model) {
-//		model.addAttribute("privateForm",new PrivateForm());
-//		return "/privatelist";
-//	}
-
-//	@PostMapping("/edit/update")
-//	public String edit( Model model) {
-//		model.addAttribute("privateForm",new PrivateForm());
-//		return "/update";
-//	}
-
-	@PostMapping("/back")
-	public String edit2( Model model) {
-		model.addAttribute("privateForm",new PrivateForm());
-		return "/private";
-	}
-
 	@GetMapping("/privatelist")
 	public String privateList( Model model) {
 		// serviceを使って、申請の一覧をDBから取得する
@@ -55,12 +37,7 @@ public class PrivateController {
 		model.addAttribute("privatelist", privatelist);
 		return "/privatelist";
 	}
-	/**
-	 * 経費申請登録
-	 * @param expencesForm リクエストデータ
-	 * @param model Model
-	 * @return 経費一覧画面
-	 */
+
 	@PostMapping("/private")
 	public String privateInsert(@Validated @ModelAttribute PrivateForm privateForm,BindingResult bindingResult,Model model) {
 		if (bindingResult.hasErrors()) {
@@ -90,21 +67,4 @@ public class PrivateController {
 		privateService.delete(id);
 		return "redirect:/privatelist";
 	}
-
-//	@PostMapping("/update")
-//	public String update(@Validated @ModelAttribute PrivateForm privateForm, BindingResult result, Model model) {
-//		if (result.hasErrors()) {
-//			List<String> errorList = new ArrayList<String>();
-//			for (ObjectError error : result.getAllErrors()) {
-//				errorList.add(error.getDefaultMessage());
-//			}
-//			model.addAttribute("privateForm", privateForm);
-//			model.addAttribute("validationError", errorList);
-//			return "/update";
-//		}
-//		// ユーザー情報の更新
-//		privateService.update(privateForm);
-//		model.addAttribute("privateForm",privateForm);
-//		return "redirect:/privatelist";
-//	}
 }
