@@ -10,9 +10,10 @@ public class test1{
 		System.out.println(z);
 
 		//      2.64ビット整数の「1111111111」を定義し2倍した値を出力しなさい。
-		double d=1111111111*2;
+		long d = 0b1111111111L;
+		long result = d *2;
 
-		System.out.println(d);
+		System.out.println(result);
 
 		//      3.boolean型の変数の値に不正な文字列比較を入れてfalseを出力してください。
 		int num1 = 1;
